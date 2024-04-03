@@ -8,9 +8,21 @@
 	crossorigin="anonymous">
 </head>
 
-<body>
-
+<body class="ms-5 me-5">
 	<div class="conteiner">
+	
+		<div class="conteiner-fluid py-5 p-5 bg-secondary-subtle rounded-3"><h1 class="display-5">Meus Pedidos</h1></div>
+			
+			<nav class="navbar navbar-expand navbar-light bg-light d-flex justify-content-between mb-3">
+					<div class="navbar-nav">
+						<a class="nav-link active" href="">Todos</a>
+						<a class="nav-link " href="">Aguardando</a>
+						<a class="nav-link " href="">Aprovado</a>
+						<a class="nav-link " href="">Entregue</a>
+					</div>
+					<a href="/pedido/formulario"><button class="btn btn-outline-secondary">Novo</button></a>
+			</nav>
+	</div>
 		<div class="card" th:each="pedido : ${pedidos}">
 			<div class="card-header" th:text="${pedido.nomeProduto}">Nome
 				do produto</div>
@@ -47,6 +59,5 @@
 
 			</div>
 		</div>
-	</div>
 </body>
 </html>
