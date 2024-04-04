@@ -19,27 +19,30 @@
 
 		<form th:object="${requisicaoNovoPedido}" class="card-body" action="/pedido/novo" method="POST">
 
-			<div class="form-group mb-2">
+			<div class="form-group mb-2 ">
 				<label class="form-label" for="nomeProduto">Produto</label> 
-				<input th:field="*{nomeProduto}" class="form-control" placeholder="Nome do produto" /> 
+				<input th:field="*{nomeProduto}" class="form-control is-invalid" placeholder="Nome do produto" /> 
 				<small>Informe qual nome do produto</small>
+				<div class="invalid-feedback" th:errors="*{nomeProduto}">Erro no nome do produto</div>
 			</div>
 
 			<div class="form-group mb-2">
 				<label class="form-label" for="urlProduto">URL</label>
-				<input th:field="*{urlProduto}" class="form-control" placeholder="URL do produto" /> 
+				<input th:field="*{urlProduto}" class="form-control is-invalid" placeholder="URL do produto" /> 
 				<small>Procure em um site o produto que você deseja e cole a url da página aqui</small>
+				<div class="invalid-feedback" th:errors="*{urlProduto}">Erro na url do produto</div>
 			</div>
 
 			<div class="form-group mb-2">
 				<label class="form-label" for="urlImagem">Imagem</label>
-				<input th:field="*{urlImagem}" class="form-control" placeholder="URL da imagem" /> 
+				<input th:field="*{urlImagem}" class="form-control is-invalid" placeholder="URL da imagem" /> 
 				<small>Copie a url de uma boa imagem do produto e cole aqui para ajudar seus compradores</small>
+				<div class="invalid-feedback" th:errors="*{urlImagem}">Erro na url da imagem</div>
 			</div>
 
 			<div class="form-group mb-3">
 				<label class="form-label" for="descricaoPedido">Descrição</label>
-				<textarea class="form-control" name="descricaoPedido" placeholder="Adicione detalhes importantes para o comprador !"></textarea>
+				<textarea th:field="*{descricaoPedido}" class="form-control" placeholder="Adicione detalhes importantes para o comprador !"></textarea>
 			</div>
 			<button class="btn btn-primary" type="submit">Cadastrar</button>
 
