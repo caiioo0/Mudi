@@ -3,8 +3,10 @@ package br.com.mvc.mudi.Model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,6 +25,18 @@ public class Pedido {
 	private String descricaoPedido;
 	
 	
+	
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private StatusPedido status = StatusPedido.AGUARDANDO;
+	
+	public StatusPedido getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusPedido status) {
+		this.status = status;
+	}
 
 	public String getNomeProduto() {
 		return nomeProduto;

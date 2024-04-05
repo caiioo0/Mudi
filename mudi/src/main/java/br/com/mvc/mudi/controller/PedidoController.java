@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.mvc.mudi.Model.Pedido;
+import br.com.mvc.mudi.Model.StatusPedido;
 import br.com.mvc.mudi.dto.RequisicaoNovoPedido;
 import br.com.mvc.mudi.repository.PedidoRepository;
 import jakarta.validation.Valid;
@@ -31,7 +32,7 @@ public class PedidoController {
 		if(result.hasErrors()) {
 			return "pedido/formulario";
 		}
-		
+	
 		Pedido pedido = requisicao.toPedido();
 		pedidoRepository.save(pedido);
 		return "pedido/formulario";
